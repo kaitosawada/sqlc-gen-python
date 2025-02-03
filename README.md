@@ -76,3 +76,17 @@ class Status(str, enum.Enum):
     OPEN = "op!en"
     CLOSED = "clo@sed"
 ```
+
+## Development
+
+### Test
+
+```sh
+$ make test
+```
+
+### Release
+
+```sh
+$ make release
+```
