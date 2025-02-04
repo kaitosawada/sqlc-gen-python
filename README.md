@@ -79,6 +79,12 @@ class Status(str, enum.Enum):
 
 ## Development
 
+### Shell
+
+```sh
+$ devenv shell
+```
+
 ### Test
 
 ```sh

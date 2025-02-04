@@ -80,7 +80,8 @@ class AsyncQuerier:
         await self._conn.execute(sqlalchemy.text(DELETE_AUTHOR), {"p1": id})
 
     async def get_author(self, *, id: int) -> Optional[models.Author]:
-        row = (await self._conn.execute(sqlalchemy.text(GET_AUTHOR), {"p1": id})).first()
+        result = await self._conn.execute(sqlalchemy.text(GET_AUTHOR), {"p1": id})
+        row = await result.first()
         if row is None:
             return None
         return models.Author(
