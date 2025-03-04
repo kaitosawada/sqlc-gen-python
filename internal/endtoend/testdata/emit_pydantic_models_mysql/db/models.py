@@ -10,4 +10,4 @@ class Author(pydantic.BaseModel):
     id: int
     name: str
     bio: Optional[str]
-    created_at: datetime.date
+    created_at: datetime.datetime

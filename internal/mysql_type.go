@@ -32,7 +32,7 @@ func mysqlType(req *plugin.GenerateRequest, col *plugin.Column) string {
 	case "enum":
 		return "string"
 	case "date", "timestamp", "datetime", "time":
-		return "datetime.date"
+		return "datetime.datetime"
 	case "boolean", "bool":
 		return "bool"
 	case "json":
