@@ -1003,11 +1003,11 @@ func buildQueryTree(ctx *pyTmplCtx, i *importer, source string) *pyast.Node {
 			case ":one":
 				f.Body = append(f.Body,
 					assignNode("result", poet.Await(exec)),
-					assignNode("row", poet.Await(poet.Node(
+					assignNode("row", poet.Node(
 						&pyast.Call{
 							Func: poet.Attribute(poet.Name("result"), "first"),
 						},
-					))),
+					)),
 					poet.Node(
 						&pyast.If{
 							Test: poet.Node(

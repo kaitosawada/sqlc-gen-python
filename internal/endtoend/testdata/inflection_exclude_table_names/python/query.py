@@ -63,7 +63,7 @@ class AsyncQuerier:
 
     async def delete_bar_by_id(self, *, id: int) -> Optional[models.Bar]:
         result = await self._conn.execute(sqlalchemy.text(DELETE_BAR_BY_ID), {"p1": id})
-        row = await result.first()
+        row = result.first()
         if row is None:
             return None
         return models.Bar(
@@ -73,7 +73,7 @@ class AsyncQuerier:
 
     async def delete_exclusion_by_id(self, *, id: int) -> Optional[models.Exclusions]:
         result = await self._conn.execute(sqlalchemy.text(DELETE_EXCLUSION_BY_ID), {"p1": id})
-        row = await result.first()
+        row = result.first()
         if row is None:
             return None
         return models.Exclusions(
@@ -83,7 +83,7 @@ class AsyncQuerier:
 
     async def delete_my_data_by_id(self, *, id: int) -> Optional[models.MyData]:
         result = await self._conn.execute(sqlalchemy.text(DELETE_MY_DATA_BY_ID), {"p1": id})
-        row = await result.first()
+        row = result.first()
         if row is None:
             return None
         return models.MyData(

@@ -80,7 +80,7 @@ class AsyncQuerier:
 
     async def create_book(self, *, title: str, status: Optional[models.BookStatus]) -> Optional[models.Book]:
         result = await self._conn.execute(sqlalchemy.text(CREATE_BOOK), {"p1": title, "p2": status})
-        row = await result.first()
+        row = result.first()
         if row is None:
             return None
         return models.Book(
@@ -94,7 +94,7 @@ class AsyncQuerier:
 
     async def get_book(self, *, id: int) -> Optional[models.Book]:
         result = await self._conn.execute(sqlalchemy.text(GET_BOOK), {"p1": id})
-        row = await result.first()
+        row = result.first()
         if row is None:
             return None
         return models.Book(
